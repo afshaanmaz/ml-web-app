@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<head>
+    <title>
+        ML Flask App
+    </title>
+</head>
+
+<body>
+
+    <h2> This app displays user input data on a Website  </h2>
+            <div class="form-group">
+                <form method="POST" action ="">
+
+                    <fieldset class="form-group">
+                        <div class="form-group">
+
+                            {{form.textdata.label(class="form-control-label")}}
+                            {{form.textdata(class="form-control form-control-lg")}}
+
+                        </div>
+                    </fieldset>
+
+                <div class="form-group">
+                    {{form.submit(class="btn btn-outline-info")}}
+                </div>
+
+
+                </form>
+
+
+                <!-- <div class="border-top pt-3">
+                    <small>
+                        Follow this link: <a class="ml-2" href="{{url_for('python_form')}}"></a>
+                    </small>
+                    
+                </div> -->
+
+
+
+
+            </div>
+
+
+
+
+
+    <!-- {% for data in display %} -->
+        <!-- <h1>{{display.textdata}}</h1> -->
+        <!-- <p>here is their number: {{data.number}}</p> -->
+    <!-- {% endfor %} -->
+
+    <!-- 
+        
+        Curly braces + percent signs = code block in html
+        Double curly brace: variable
+        '
+        Child templates can override a block
+    
+    -->
+
+    {% block content %}
+        <h2> About page </h2>
+    {% endblock content %}
+
+    
+</body>
+
+<html>

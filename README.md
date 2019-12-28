@@ -7,10 +7,10 @@ Tutorial for Tech Together 2020
 * 0 - display text on browser using flask
 
 
-* 1 - Jinja templating for GET and POST requests
+* 1 - Jinja templating 
 
 
-* 2 - Accept input from user - HTML buttons -  form + action - and display conditional output
+* 2 - Accept input from user - HTML buttons -  form + action - and display conditional output.  GET and POST requests
 
 
 * 3 - Connect ML model. Display results from model.predict 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>
+        ML Flask App
+    </title>
+</head>
+
+    
+
+
+
+<body>
+
+    <h2> This app displays {{title}} data on a Website  </h2>
+
+    <!-- {% if title == '' %}
+        <title>Flask Blog - {{ title }} data </title>
+    {% else %}
+        <title>Flask Blog - dummy data</title>
+    {% endif %} -->
+
+
+    {% with messages = get_flashed_messages(with_categories=True)%}
+        {% if messages %}
+            {% for category, message in messages%}
+
+                <div class="alert alert-{{category}}">
+                    {{message}}
+                </div>
+
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+    <!-- {% for data in display %}
+        <h1>{{data.name}}</h1>
+        <p>here is their number: {{data.number}}</p>
+    {% endfor %} -->
+
+    <!-- 
+        
+        Curly braces + percent signs = code block in html
+        Double curly brace: variable
+        '
+        Child templates can override a block
+    
+    -->
+
+    
+</body>
+
+<html>

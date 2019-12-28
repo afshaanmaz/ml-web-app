@@ -5,3 +5,6 @@ sklearn
 requests
 flask
 gunicorn
+flask_wtf
+wtforms
+secrets
