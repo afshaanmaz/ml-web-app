@@ -1,16 +1,14 @@
 from flask import Flask, render_template, url_for, request, flash, redirect
 from forms import UserInputForm
 
+from sentiment_analysis.preprocess_data import *
+
 import secrets
 key = secrets.token_hex(16)
 
 app = Flask(__name__)
 
-
-
 app.config["SECRET_KEY"] = key
-
-
 
 
 @app.route('/')

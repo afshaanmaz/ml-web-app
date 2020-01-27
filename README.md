@@ -2,6 +2,9 @@
 Tutorial for Tech Together 2020
 
 
+### In final-ml-web-app run form-app.py
+
+
 # Tutorials:
 
 * 0 - display text on browser using flask
@@ -10,23 +13,33 @@ Tutorial for Tech Together 2020
 * 1 - Jinja templating 
 
 
-* 2 - Accept input from user - HTML buttons -  form + action - and display conditional output.  GET and POST requests
+* 2 - Get user input using wt-forms and display with flash redirects
 
 
-* 3 - Connect ML model. Display results from model.predict 
+* 3 - (Pending) Accept input from user - HTML buttons -  form + action - and display conditional output.  GET and POST requests
 
 
-* 4 - Beautify : Extend 3: Load and predict keras model. Extend 2: Accept differnt kinds of inputs (images)  Extend 1 (Javascript event handler) 
+* final-ml-web-app - Connect ML model. Display results from model.predict 
 
 
 
-
-# Setup:
+# Setup: 
 
 - Python Install
 
 - Install and Setup Venv with dependencies
 
-TODO: - docker / shell script for system compatibility
+
+
+# TODO:
+
+To pickup where I left off, 
+
+[ folder: final-ml-web-app/form-app.py, files: sentiment_analysis/preprocess_data.py, ML_Modelling.ipynb, train_model.py]
+ - Make two scripts: One loads data, trains the model and saves the model object.
+ - The other script expects the model object and the user input and does a model.predict 
+
+
+
 
 
