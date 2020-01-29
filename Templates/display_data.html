@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ML Flask App</title>
+</head>
+
+<body>
+    <form>
+        <p>
+            Enter your value for Madagascar
+            <br>
+        </p>
+        <input type="text" name="user_review">
+        <input type="submit" value="Submit">
+    </form>
+
+
+{% if user_input %}
+  <h1>Your input was {{ user_input }}!</h1>
+{% endif %}
+
+</body>
+</html>
