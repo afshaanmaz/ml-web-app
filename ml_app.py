@@ -1,8 +1,8 @@
 """Basic app to demonstrate anatomy of flask"""
 
 from flask import Flask, render_template, request
-import sentiment_analysis.preprocess_data as preprocess
-import sentiment_analysis.test as test
+import archive_sentiment_analysis.preprocess_data as preprocess
+import archive_sentiment_analysis.test as test
 app = Flask(__name__)
 
 

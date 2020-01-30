@@ -18,7 +18,3 @@ lowercase
 
 
 
-References:
-
-https://machinelearningmastery.com/clean-text-machine-learning-python/
-https://towardsdatascience.com/sentiment-analysis-with-python-part-1-5ce197074184

@@ -1,1 +1,0 @@
-### Final Web app connects the ML model and the flask form input 
