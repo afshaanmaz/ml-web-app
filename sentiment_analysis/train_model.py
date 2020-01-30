@@ -2,7 +2,7 @@
 
 """
 
-from Sentiment_Analysis import SentimentAnalysis
+from Sentiment_Analysis import *
 
 
 # Load data
@@ -24,15 +24,28 @@ def load_data(file_path=None):
     return reviews_train, reviews_test
 
 
+def get_test_accuracy(test_dataset): # Can live in the main script as well
+    pass
+
+
 def main():
 
+    # load data
     reviews_train, reviews_test = load_data()
 
-    ml_api = SentimentAnalysis()
+    # preprocess data
+    reviews_train_clean = [preprocess_reviews(line) for line in reviews_train]
+    reviews_test_clean = [preprocess_reviews(line) for line in reviews_test]
+
+    # create feature vectorizer
+    # optional: set the params of vectorizer here
+    vectorizer = create_feature_transform(params_dict=None, train=True, training_data=reviews_train_clean)
 
 
-    reviews_train_clean = [ml_api.preprocess_reviews(line) for line in reviews_train]
-    reviews_test_clean = [ml_api.preprocess_reviews(line) for line in reviews_test]
+    # Save the vectorizer
+    pickle.dump(vectorizer, open("./model/count_vectorizer_object.pkl", "wb"))
+
+
 
     pass
 

@@ -44,6 +44,11 @@ from Sentiment_Analysis import preprocess_reviews
 def main(user_input):
     user_input_processed = preprocess_reviews(user_input)
 
+    # Load saved model - vectorizer
+    saved_vectorizer = pickle.load(open('./model/count_vectorizer_object.pkl', 'rb'))
+
+    # load saved logreg model
+
     pass
 
 if __name__=="___main__":
