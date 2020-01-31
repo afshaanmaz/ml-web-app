@@ -1,7 +1,11 @@
-
+import re
 from sklearn.feature_extraction.text import CountVectorizer
 import pickle
-import re
+
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 
 
 def remove_escapes(input_string):
@@ -28,15 +32,14 @@ def preprocess_reviews(input_string):
     return input_string
 
 
-def create_feature_transform(params_dict=None, train=False, training_data=None):
+def create_feature_transform(train=False, training_data=None):
     """
     training_data should be a list of preprocessed strings
     """
-    # TODO: Include params for CountVectorizer from values in params_dict
-
     vectorizer = CountVectorizer(binary=True, decode_error="replace", strip_accents='unicode',
-                                 stop_words='english', min_df=0.005
+                                 stop_words='english', min_df=0.001
                                  )
+    # min_df: Remove proper nouns - any word occuring less than 0.01% of all words in the dataset
 
     if train is True and training_data is not None:
         vectorizer.fit(training_data)
@@ -44,7 +47,21 @@ def create_feature_transform(params_dict=None, train=False, training_data=None):
     return vectorizer
 
 
-def
+def get_feature_vectors(input_string_list, vectorizer):
+    """
+    Takes in a list of strings 
+    """
+    input_feature_vectors = vectorizer.transform(input_string_list)
+    
+    return input_feature_vectors
+
+
+
+
+
+
+
+    
 
 
 

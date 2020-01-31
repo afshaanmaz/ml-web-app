@@ -4,52 +4,38 @@ Inference or accessing ML model
 This script contains all the code needed to interface with a Flask App
 Accepts user input, pre-processes it, converts to a feature
 """
-import re
-
-#from sklearn.feature_extraction.text import CountVectorizer
-# cv = CountVectorizer(binary=True)
-# cv.fit(reviews_train_clean)
-# X = cv.transform(reviews_train_clean)
-# X_test = cv.transform(reviews_test_clean)
-
-
-
-# def remove_escapes(input_string):
-#     escapes = ''.join([chr(char) for char in range(1, 32)])
-#     # all escape sequences have an ANSI encoding value between 1 and 32
-#
-#     translator = str.maketrans('', '', escapes) # Different syntax for py2/ py3 / py3.1 +
-#     output_string = input_string.translate(translator)
-#     return output_string
-#s
-#
-# def preprocess_reviews(input_string):
-#     """
-#     """
-#     REPLACE_NO_SPACE = re.compile("(\.)|(\;)|(\:)|(\!)|(\')|(\?)|(\,)|(\")|(\()|(\))|(\[)|(\])|(\_)|(\d+)")
-#     REPLACE_WITH_SPACE = re.compile("(<br\s*/><br\s*/>)|(\-)|(\/)")
-#     NO_SPACE = ""
-#     SPACE = " "
-#
-#     input_string = remove_escapes(input_string)
-#     input_string = REPLACE_NO_SPACE.sub(NO_SPACE, input_string.lower())
-#     input_string = REPLACE_WITH_SPACE.sub(SPACE, input_string)
-#
-#     return input_string
 
 
 ## ** this is faulty - fix it
-from Sentiment_Analysis import preprocess_reviews
+from train_model import preprocess_reviews, get_feature_vectors, get_model_prediction
 
 def main(user_input):
     user_input_processed = preprocess_reviews(user_input)
 
     # Load saved model - vectorizer
-    saved_vectorizer = pickle.load(open('./model/count_vectorizer_object.pkl', 'rb'))
+    saved_vectorizer = pickle.load(open('./model/vectorizer.pkl', 'rb'))
+
+    # Get feature vector
+    user_data_vector = saved_vectorizer.transform([user_input_processed, ''])[:-1]
+    #extra string cuz it expects more than one document to transform
 
     # load saved logreg model
+    saved_model = pickle.load(open('./model/log_reg_model.pkl', 'rb'))
+
+
+    # get prediction from saved model
+    result = saved_model.predict(user_data_vector)[0]
+
+    # It returns an integer, just being conservative here to deal with precision errors
+
+    if result >= 0.5:
+        return 'Positive'
+    elif result < 0.5:
+        return 'Negative'
+    else:
+        return 'Error'
 
     pass
 
-if __name__=="___main__":
+if __name__=='___main__':
     main()
