@@ -3,5 +3,3 @@ __pycache__/
 venv/
 .idea/
 .ipynb_checkpoints/
-full_test.txt
-full_train.txt

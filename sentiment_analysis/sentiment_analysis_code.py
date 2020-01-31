@@ -159,7 +159,8 @@ def train_model():
     print(X_data.shape)
     
     # Load the target label for the training data
-    # We're able to set the target like this because we know the reviews are ordered as being positive for the first 12500 and negative for the next ones
+    # We're able to set the target like this because we know the reviews are ordered
+    # as being positive for the first 12500 and negative for the next 12500 (for both train and test data)
     target = [1 if i < 12500 else 0 for i in range(25000)]
 
     print('\nCross Validation ...')
