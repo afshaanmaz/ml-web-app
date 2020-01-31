@@ -11,7 +11,7 @@ Logistic Regression on the feature vector
 import re
 from sklearn.feature_extraction.text import CountVectorizer
 import pickle
-
+import os
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
@@ -98,14 +98,18 @@ def get_model_prediction(user_input):
     user_input_processed = preprocess_reviews(user_input)
 
     # Load saved model - vectorizer
-    saved_vectorizer = pickle.load(open('./model/vectorizer.pkl', 'rb'))
+    #saved_vectorizer = pickle.load(open(r'./model/vectorizer.pkl', 'rb'))
+    saved_vectorizer = pickle.load(open(os.path.join('sentiment_analysis', 'model', 'vectorizer.pkl'), 'rb'))
+
 
     # Get feature vector
     user_data_vector = saved_vectorizer.transform([user_input_processed, ''])[:-1]
     # extra string cuz it expects more than one document to transform
 
     # load saved logreg model
-    saved_model = pickle.load(open('./model/log_reg_model.pkl', 'rb'))
+    #saved_model = pickle.load(open(r'./model/log_reg_model.pkl', 'rb'))
+    saved_model = pickle.load(open(os.path.join('sentiment_analysis', 'model', 'log_reg_model.pkl'), 'rb'))
+
 
     # get prediction from saved model
     result = saved_model.predict(user_data_vector)[0]

@@ -1,7 +1,7 @@
 """Basic app to demonstrate anatomy of flask"""
 
 from flask import Flask, render_template, request
-import sentiment_analysis.api_sentiment_analysis as senti_api
+import sentiment_analysis.sentiment_analysis_code as senti_api
 app = Flask(__name__)
 
 
@@ -13,24 +13,22 @@ def predict():
     user_input = accept_user_input()
     print('User input = ', user_input)
 
-    # Preprocess input - Remember to import the file from sentiment analysis
-    preprocessed_data = senti_api.preprocess_reviews(user_input)
+    if user_input:
+        # Step 3c-2
+        # Send the preprocessed data to the ML model
+        sentiment = senti_api.get_model_prediction(user_input)
 
-    # Step 3c-2
-    # Send the preprocessed data to the ML model
-    sentiment = test.inference(preprocessed_data)
+        # Send the prediction to the web app
+        return render_template('predict.html', user_input=user_input, predicted_out=sentiment)
 
-    # Send the prediction to the web app
-    return render_template('predict.html', predicted_out=sentiment)
+    return render_template('predict.html')
 
 
 def accept_user_input():
     """Accept user input with forms"""
-
+    user_input = ''
     if request.args:
         user_input = request.args['user_review']
-    else:
-        user_input = ''
 
     return user_input
 
