@@ -8,13 +8,3 @@ Reference: https://towardsdatascience.com/sentiment-analysis-with-python-part-1-
 
 
 
-Preprocessing
-
-Escape characters For when the user breaks their input into multiple paragraphs https://stackoverflow.com/questions/8115261/how-to-remove-all-the-escape-sequences-from-a-list-of-strings
-
-punctuation (don't) --> dont Take care to not break up words with apostrophes
-
-lowercase
-
-
-
