@@ -1,5 +1,11 @@
 """
 
+This script contains all the code needed to train a sentiment analysis model
+and to interface with a Flask App
+Accepts user input, pre-processes it, converts to a feature
+Then it predicts whether the review was positive or negative using
+Logistic Regression on the feature vector
+
 """
 
 import re
@@ -117,7 +123,7 @@ def get_model_prediction(user_input):
 
 
 
-def main():
+def train_model():
     print('Loading data ...')
     # load data
     reviews_train, reviews_test = load_data()
@@ -177,21 +183,19 @@ def main():
 
     pass
 
-
-if __name__ == '__main__':
-    print('Hello')
-    #main()
-
+def test_inference():
     pos_str = 'This movie was excellent, so good, best thing ever'
-
     neg_str = 'The worst thing Ive ever seen terrible horrible bad'
 
-    #prediction = get_model_prediction(pos_str)
-
     print('\n', get_model_prediction(pos_str), pos_str)
-
-    #prediction = get_model_prediction(neg_str)
-
     print('\n', get_model_prediction(neg_str), neg_str)
+
+
+
+if __name__ == '__main__':
+    #train_model()
+    test_inference()
+
+
 
 
