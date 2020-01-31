@@ -1,6 +1,7 @@
 .DS_Store
 __pycache__/
 venv/
-.pkl
-.pickle
 .idea/
+.ipynb_checkpoints/
+full_test.txt
+full_train.txt
