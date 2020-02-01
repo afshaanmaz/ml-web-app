@@ -11,3 +11,5 @@ Basic working knowledge of Python. We will cover the fundamentals of Machine Lea
 ## Setup: 
 
 - Follow [instructions](https://docs.google.com/presentation/d/1U50Lpk-q11tJUfoShb0RCOSDvQp6pVeMR5D5O74pFr8/edit?usp=sharing) to setup a Python Anywhere account and get your first web app up and running !
+
+- To run the notebooks use google [colaboratory](https://colab.research.google.com/notebooks/welcome.ipynb) Sign up with a google account. 
