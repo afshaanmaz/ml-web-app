@@ -1,3 +1,5 @@
+<!-- HTML to accept input from user, pass to ML app and display prediction -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
 <body>
     <form>
         <p>
-            Enter your review for Madagascar
+            Enter your review for the movie
             <br>
         </p>
         <input type="text" name="user_review">
@@ -16,8 +18,8 @@
     </form>
 
 {% if predicted_out %}
-  <h1>The prediction is {{ predicted_out }}!</h1>
-{% endif %}
+  <h1>The prediction for {{ user_input }} is {{ predicted_out }}!</h1>
+    {% endif %}
 
 </body>
 </html>
